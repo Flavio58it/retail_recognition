@@ -26,6 +26,8 @@ This node first subscribes to the camera topic published by the usb_cam node. Ca
 
 The Tesseract-OCR libary is used to make initial text predictions for each cropped sign label. A spell-checking step is employed, where the Tesseract-OCR predictions are compared to the word database entries using the Levenshtein distance metric [2]. An OCR word is replaced by a database word if their Levenshtein distance is minimal. After the spell-checking process is completed, the node searches through the sign label database to find a match with the spell-checked prediction. If a match is found, the sign label's text and original skewed bounding box are displayed in the raw image.
 
+![alt_text](images/sign_classification_example.png)
+
 ## Shelf Product Recognition
 The shelf product recognition node also uses a two-step detection / classification process.
 
@@ -36,6 +38,8 @@ This node first loads into memory a [textfile](databases/products/product_list1.
 As with aisle sign recognition, this node subscribes to the usb_cam node's camera topic. The detection process begins by removing the shelving background from the image. To do this, the raw image is binarized, from which a mask of the shelving features is created. This shelving mask is subtracted from the oiginal binary image, leaving a resultant image that only contains product shapes. Bounding boxes are generated around these shapes using a contour detector, which are then used to crop detected products from the raw image.
 
 Product candidates are classified using SIFT feature maching [3], where each product candidate is matched to every template image in the aisle's product database. Outlier matches in each candidate-template pair are removed using both the ratio test [3] and RANSAC [4]. The template image with the most matches to the product candidate is assigned as the candidate's classification label. Bounding boxes and classification labels are displayed in the raw image, as shown in the example below:
+
+![alt_text](images/shelf_product_classification_example.png)
 
 ## References
 [1]: J. Canny, “A Computational Approach to Edge Detection,” IEEE Trans. Pattern Anal. Mach. Intell., vol. PAMI-8, no. 6, pp. 679–698, 1986.
