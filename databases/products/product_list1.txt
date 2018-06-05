@@ -1,0 +1,30 @@
+Background BG1	background.png
+BakedGoods BKG1 shirrif_pie_crust.png
+Cans CAN1 bushs_baked_beans.png
+Cans CAN2 campbells_demande.png
+Cans CAN3 unico_dt.png
+Cans CAN4 unico_cp.png
+Cereal CER1 vector.png
+Cereal CER2 fibre1.png
+Cereal CER3 edge.png
+Coffee CFE1 folgers.png
+Coffee CFE2 coffeeFilter.png
+Crackers CRK1 naanThins.png
+Crackers CRK2 riceCrisps.png
+Crackers CRK3 old_el_paso.png
+Crackers CRK4 ritz.png
+Cleaning CLN1 cascade.png
+Cleaning CLN2 lysol.png
+Cream CRM1 natrel_light_cream.png
+GranolaBars GRN1 natureValley.jpg
+Pasta PST1 italPasta.png
+Pasta PST2 all_natural_lasagne.png
+HotDrinks HD1 carnation_hot_chocolate.png
+HotDrinks HD2 th_hot_chocolate.png
+Tea TEA1 tetley.png
+Tea TEA2 cranberry_herbal_tea.png
+Tea TEA3 tazo.png
+
+
+
+

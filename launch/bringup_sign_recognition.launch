@@ -1,0 +1,55 @@
+<launch>
+
+	<include file="$(find retail_recognition)/launch/bringup_usb_cam.launch">
+	</include>
+	
+	<!-- Aisle Sign Recognition Node -->
+	<node pkg="retail_recognition" type="sign_recognition_node" name="sign_recognition_node" respawn="false" output="screen" >
+
+		<!-- camera & topic names -->
+		<param name="usb_cam_topic_name"	type="str"	value="/usb_cam/image_raw" />
+		
+		<!-- usb_cam callback -->
+		<param name = "raw_width_resize"	type="int"	value="800" />
+		<param name = "raw_height_resize"	type="int"	value="600" />
+
+		<!-- list of aisle sign categories -->
+		<param name = "aisle_categories_list"	type="str"	value="$(find retail_recognition)/databases/aisle_signs/sign_label_list1.txt" />
+
+		<!-- transform listener -->
+		<param name = "find_map_pose"		type="bool"	value="false" />
+		<param name = "target_frame"		type="str"	value="" />
+		<param name = "source_frame"		type="str"	value="" />
+
+		<!-- image pre-processing -->
+		<param name = "minThreshold"		type="int"	value="36" />
+		<param name = "threshRatio"		type="int"	value="3" />
+		<param name = "window_size"		type="int"	value="9" />
+		<param name = "blur_colRange"		type="int"	value="10" />
+		<param name = "blur_spatialRange"	type="int"	value="10" />
+		
+		<!-- find sign label contours -->
+		<param name = "min_scaleFactor"		type="double"	value="0.0005" />
+		<param name = "max_scaleFactor"		type="double"	value="0.02" />
+
+		<!-- calculate aspect ratio --> 
+		<param name = "label_width"		type ="double"	value="43.5" />
+		<param name = "label_height"		type ="double"	value="9.5" />
+
+		<!-- label cropping & post-processing -->
+		<param name = "edge_offset"		type="int"	value="5" />
+		<param name = "cropWidth"		type="int"	value="200" />
+		<param name = "cropHeight"		type="int"	value="40" />
+		<param name = "filter_size"		type="int"	value="11" />
+		<param name = "bt_window_size"		type="int"	value="7" />
+		<param name = "element_size"		type="int"	value="3" />
+
+		<!-- edit distance comparison -->
+		<param name = "max_edit_distance"	type="int"	value="2" />
+
+		<!-- text label classification -->
+		<param name = "prob_threshold" 		type="double"	value="0.5" />
+
+	</node>
+		
+</launch>

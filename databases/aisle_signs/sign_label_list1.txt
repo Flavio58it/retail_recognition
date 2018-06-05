@@ -1,0 +1,12 @@
+Side Dishes,2
+Cans,2
+Int'n Sauces,2
+Int'n Spices,2
+Pasta,2
+Rice,2
+Spreads,1
+Rice Cakes,1
+Tea,1
+Coffee,1
+Cereal,1
+Fruit Snacks,1

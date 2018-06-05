@@ -1,0 +1,52 @@
+<launch>
+
+	<!--<include file="$(find retail_recognition)/launch/bringup_usb_cam.launch">
+	</include>-->
+	
+	<!-- Product Recognition Node -->
+	<node pkg="retail_recognition" type="shelf_product_recognition_node" name="shelf_product_recognition_node" respawn="false" output="screen" >
+
+		<!-- camera & topic names -->
+		<param name="usb_cam_topic_name"	type="str"	value="/usb_cam/image_raw" />
+
+		<!-- template master list -->
+		<param name="templateDir"		type="str"	value="$(find retail_recognition)/databases/products/template_images/" />
+		<param name="templateList"		type="str"	value="$(find retail_recognition)/databases/products/product_list1.txt" />
+
+		<!--target products to find on shelf-->
+		<param name="product1"			type="str"	value="" />
+		<param name="product2"			type="str"	value="" />
+		<param name="product3"			type="str"	value="" />
+		
+		<!-- usb_cam callback -->
+		<param name="input_width"		type="int" 	value="640" /> 
+		<param name="input_height" 		type="int" 	value="480" />
+		
+		<!-- image pre-processing -->
+		<param name="blur_colRange"		type="int"	value="70" />
+		<param name="blur_spatialRange"		type="int"	value="10" />
+		<param name="element_size"		type="int"	value="10" />
+
+		<!-- shelf mask -->
+		<param name="h_scale"			type="int"	value="1" />
+		<param name="v_scale"			type="int"	value="2" />
+
+		<!-- region proposals -->
+		<param name="ar_upper"			type="double"	value="5.0" />
+		<param name="ar_lower"			type="double"	value="0.2" />
+		<param name="minContourArea"		type="int"	value="50" />
+		<param name="min_stddev"		type="int"	value="20" />
+		<param name="overlap_minThresh"		type="double"	value="0.3" />
+		
+		<!-- sliding window -->
+		<param name="n_scales"			type="int"	value="1" />
+		
+		<!-- feature matching -->
+		<param name="maxRatio"			type="double"	value="0.8" />
+		<param name="match_threshold"		type="int"	value="8" />
+		<param name="nms_min_overlap"		type="double"	value="0.3" /> 
+	
+	</node>
+
+</launch>
+
