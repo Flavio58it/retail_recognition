@@ -1,7 +1,7 @@
 <launch>
 
-	<!--<include file="$(find retail_recognition)/launch/bringup_usb_cam.launch">
-	</include>-->
+	<include file="$(find retail_recognition)/launch/bringup_usb_cam.launch">
+	</include>
 	
 	<!-- Product Recognition Node -->
 	<node pkg="retail_recognition" type="shelf_product_recognition_node" name="shelf_product_recognition_node" respawn="false" output="screen" >
